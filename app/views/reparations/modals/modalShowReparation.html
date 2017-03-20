@@ -1,0 +1,75 @@
+<div id="modalShowReparation{{reparation.id}}" class="modal fade" role="dialog" ng-controller="EditReparationController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                                <button class="close" data-dismiss="modal">&times;</button>
+
+                <h4 class="modal-title">Réparation #{{reparation.id}}</h4>
+            </div>
+            <div class="alert alert-success" ng-show="showUpdateMessage">
+                <i class="fa fa-info-circle fa-fw"></i>  Réparation mise à jour avec succès !
+            </div>
+            <div class="alert alert-warning" ng-show="showErrorMessage">
+                <i class="fa fa-info-circle fa-fw"></i>  Erreur lors de la mise à jour de la réparation : {{error}} !
+            </div>
+            <form name="editReparationForm" ng-submit="updateReparation()" novalidate>
+
+                <div class="modal-body">
+                    <dl ng-hide="editMode">
+                        <dt>Intervention</dt>
+                        <dd>{{ reparation.intervention}}</dd>
+                        <dt>Description</dt>
+                        <dd>{{ reparation.description}}</dd>
+                        <dt>Date</dt>
+                        <dd>{{ reparation.date | date: 'dd-MM-yyyy' }}</dd>
+                    </dl>
+                    <div  ng-show="editMode">
+                        <div class="form-group" ng-class="editReparationForm.intervention.$valid ? 'has-success' : 'has-error'">
+                            <label for="Intervention" class="control-label">Intervention</label>
+                            <input type="text" class="form-control" ng-model="reparation.intervention"
+                                   name="intervention" id="intervention" required>
+                        </div> 
+                        <div class="form-group" ng-class="editReparationForm.description.$valid ? 'has-success' : 'has-error'">
+                            <label for="description" class="control-label">Description</label>
+                            <textarea class="form-control" name="description" id="description"
+                                      ng-model="reparation.description" required></textarea>
+                        </div>
+                        <div class="form-group" ng-class="editReparationForm.date.$valid ? 'has-success' : 'has-error'">
+                            <label for="date" class="control-label">Date</label>
+                            <input type="text" class="form-control" name="date" id="date" datetime="yyyy-MM-dd"
+                                   ng-model="reparation.date" ng-pattern="datePattern" required>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-warning"
+                            ng-hide="editMode" ng-click="cleanAlerts()">
+                        <i class="fa fa-close fa-fw"></i> Fermer
+                    </button>
+
+                    <button type="button" class="btn btn-warning"
+                            ng-show="editMode" ng-click="cancelEdit()">
+                        <i class="fa fa-close fa-fw"></i> Annuler
+                    </button>
+
+                    <button type="button" class="btn btn-primary"  
+                            ng-show="logged && !editMode" ng-click="editMode = !editMode">
+                        <i class="fa fa-edit fa-fw"></i> Modifier
+                    </button>
+
+                    <button type="button" href="#" class="btn btn-danger" ng-click="removeReparation()"
+                            ng-show="logged && !editMode" data-dismiss="modal">
+                        <i class="fa fa-trash-o fa-fw"></i> Supprimer
+                    </button>
+
+                    <button class="btn btn-success" type="submit" 
+                            ng-show="editMode" ng-disabled="editReparationForm.$invalid">
+                        <i class="fa fa-check fa-fw"></i> Sauvegarder
+                    </button>
+                </div>
+                <input type="hidden" name="mode" value="angular">
+            </form>
+        </div>
+    </div>
+</div>

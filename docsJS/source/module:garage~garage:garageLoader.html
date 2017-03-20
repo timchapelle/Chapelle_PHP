@@ -1,0 +1,89 @@
+<!doctype html><html>  <head>    <meta charset="utf-8">    <base href="../">    <title>JSDoc: source : app.js</title>    <link href="css/prettify-tomorrow.css" type="text/css" rel="stylesheet">    <link href="css/site.css" type="text/css" rel="stylesheet">  </head>  <body ng-app="">    <nav id="toc">      <input placeholder="Filter" id="filter-input" class="col12 block field" type="text">      <div class="nav-wrapper">      <h2><a href="index.html">Index</a></h2>      <ul class="module">        <!-- garage -->        <h2 class="module">          <a chref="" ng-click="modulegarage = !modulegarage">            module: garage          </a>          <i ng-cloak="" ng-show="modulegarage">+</i>        </h2>        <li id="garage" ng-hide="modulegarage">          <ul class="group">            <h2>              <a href="" ng-click="garagecontrollers = !garagecontrollers">                controllers              </a>              <i ng-cloak="" ng-show="garagecontrollers">+</i>            </h2>            <ul ng-hide="garagecontrollers">              <li>                <a href="garage.GarageCtrl.html">GarageCtrl</a>              </li><li>                <a href="garage.LoginCtrl.html">LoginCtrl</a>              </li><li>                <a href="garage.VehiculesController.html">VehiculesController</a>              </li>            </ul>          </ul><ul class="group">            <h2>              <a href="" ng-click="garagedirective = !garagedirective">                directive              </a>              <i ng-cloak="" ng-show="garagedirective">+</i>            </h2>            <ul ng-hide="garagedirective">              <li>                <a href="garage.moveNext.html">moveNext</a>              </li>            </ul>          </ul>        </li>      </ul><ul class="module">        <!-- module_garage -->        <h2 class="module">          <a chref="" ng-click="modulemodule_garage = !modulemodule_garage">            module: module:garage          </a>          <i ng-cloak="" ng-show="modulemodule_garage">+</i>        </h2>        <li id="module:garage" ng-hide="modulemodule_garage">          <ul class="group">            <h2>              <a href="" ng-click="module_garagedirective = !module_garagedirective">                directive              </a>              <i ng-cloak="" ng-show="module_garagedirective">+</i>            </h2>            <ul ng-hide="module_garagedirective">              <li>                <a href="module-garage-garage_garageLoader.html">garage:garageLoader</a>              </li>            </ul>          </ul>        </li>      </ul>      </div>    </nav>    <div id="content" class="page-wrap">      <h1 class="title">        source : app.js      </h1>      <div id="main" class="big-container">        <!-- source code html -->        <article>          <pre class="prettyprint source linenums"><code>/* 
+ * Initialisation de l'app Angular JS
+ */
+'use strict';
+/**
+ * Module principal de l'application.
+ * Injection de 2 dépendances : ngCookies (pour la gestion des cookies) et
+ * angular-toArrayFilter, pour une gestion plus facile des fonctions de tri
+ * @module garage
+ */
+angular.module('garage', ['ngCookies', 'angular-toArrayFilter'])
+        /**
+         * Directive pour passer au champ suivant lorsqu'on a rentré le nombre
+         * de caractère correspondant à la longueur maximale définie grâce
+         * à l'attribut maxlength.
+         * @ngdoc directive
+         * @name moveNext
+         * @memberof garage
+         * @desc Passer au champ de n° de chassis suivant
+         * @restrict A 
+         * @example &lt;input type="number" name="numero_chassis1" id="numero_chassis1" move-next>
+         */
+        .directive("moveNext", function () {
+            return {
+                restrict: "A",
+                link: function ($scope, element) {
+                    element.on("input", function (e) {
+                        if (element.val().length == element.attr("maxlength")) {
+                            console.log('Longueur maximale atteinte');
+                            /**
+                             * @var {int} id Correspond au dernier chiffre de 
+                             * l'id de l'input
+                             */
+                            var id = element.attr('id').slice(-1);
+                            /**
+                             * @var {int} vehiculeId L'id du véhicule correspondant
+                             */
+                            var vehiculeId = element.attr('data-vehiculeId');
+                            console.log(id, vehiculeId);
+                            /**
+                             * Concaténation pour récupérer l'id unique du champ
+                             * de formulaire suivant
+                             */
+                            id = '#vehicule_' + parseInt(vehiculeId, 10) + '_numero_chassis' + (parseInt(id, 10) + 1);
+                            console.log(id);
+                            /**
+                             * @var {DOMelement} nextElement Le champ suivant
+                             */
+                            var nextElement = angular.element(id);
+                            console.log(nextElement);
+                            if (nextElement.length) {
+                                nextElement[0].focus();
+                            } else {
+                                console.log('Dernier champ');
+                            }
+                        } else {
+                            console.log('Longueur maximale pas encore atteinte');
+                        }
+                    });
+                }
+            };
+        })
+        /**
+         * @ngdoc directive
+         * @name garage:garageLoader
+         * @restrict E
+         * @replace true
+         * @example &lt;garageLoader>&lt;/garageLoader>
+         * @desc 
+         *      Affichage d'un message de chargement lors de requêtes asynchrones
+         */
+        .directive("garageLoader", function () {
+            return {
+                restrict: "E",
+                replace: true,
+                /**
+                 * template : le bout de code HTML à insérer à la place du tag
+                 */
+                template: "&lt;h4>&lt;i class='fa fa-cog fa-spin'>&lt;/i> Chargement en cours&lt;/h4>"
+            };
+        })
+        /**
+         * Configuration pour intercepter les requêtes HTTP
+         */
+        .config(['$httpProvider', function ($httpProvider) {
+                $httpProvider.interceptors.push('LoadingInterceptor');
+            }]);
+;
+</code></pre>        </article>        <!-- index.html -->        <!-- class files -->      </div>      <footer style="clear:both">        Documentation generated by        <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a>        using        <a href="https://github.com/allenhwkim/angular-jsdoc">Angular-JSDoc template</a>      </footer>    </div>    <script src="js/prettify.js"></script>    <script src="js/angular.min.js"></script>    <script src="js/site.js"></script>    <!--%= prettyJson %-->    <script>      prettyPrint();      var lineNo = window.location.hash.match(/#line([0-9]+)$/);      lineNo && document.querySelector("ol li:nth-child("+(lineNo[1])+")").scrollIntoView();    </script>  </body></html>

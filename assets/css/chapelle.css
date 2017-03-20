@@ -1,0 +1,477 @@
+/* 
+    Created on : 31 janv. 2017, 16:46:36
+    Author     : tim
+*/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+#page-content-wrapper {
+    margin-bottom: 50px
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #336e7b;
+
+}
+.footer span.text-muted {
+    color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.footer i {
+    position: absolute;
+    right: 5px;
+    top: 16px;
+}
+
+.footer i:hover {
+    color: #000
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+body > .container {
+    padding: 60px 15px 0;
+}
+/* MENU BUTTON */
+menu-toggle-btn i {
+    color: #336e7b
+}
+/* SIDEBAR */
+
+.sidebar-caret {
+    position: relative;
+    top: 15px;
+    right: 20px;
+}
+li.collapse a {
+    padding-left: 20px
+}
+#vehiculeMenu a img {
+    height: 20px;
+    margin-right: 5px
+}
+
+.search-vehicule-nav {
+    padding-left: 20px
+}
+
+.search-vehicule-nav button.btn {
+    background-color: transparent;
+}
+
+.search-list-group-item {
+    background: rgba(51,110,123,.2);
+    color: #fff;
+    width: 185px;
+    min-height: 40px;
+    max-height: 55px;
+    margin-left: 20px;
+}
+.search-list-group-item .media-heading {
+    margin-left: -10px;
+    margin-bottom: -10px;
+    margin-top: 10px;
+    color: #336e7b;
+    text-align: left;
+}
+.search-list-group-item .media-left img {
+    margin-top: 10px;
+    margin-left: 5px
+}
+/* BREADCRUMBS */
+
+ol.breadcrumb li a {
+    color: #336e7b;
+}
+ol.breadcrumb li a:hover {
+    color: #000;
+    text-decoration: none
+}
+/* WELLS */
+.well {
+    background-color: #336e7b;
+    color: #fff
+}
+
+.well a, .well a:hover {
+    color: #fff;
+    text-decoration: none
+}
+/* HOME */
+
+.jumbotron h1 {
+    color: #f5f5f5
+}
+
+.jumbotron h2 {
+    color: #333
+}
+
+/* FOOTER */
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* VEHICULES */
+
+.panel-body {
+    min-height: 225px;
+}
+div[id^="reparations"].tab-pane {
+    height: 120px;
+    overflow-y: scroll;
+    width: 100%
+}
+
+.panel-default>.panel-heading {
+    background-color: #333;
+    color: #f5f5f5
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li>a:hover {
+    color: #336e7b;
+    box-shadow: inset 0 -2px 0 #336e7b
+}
+
+.order-group {
+    margin-top: 20px;
+    margin-left: 18px
+}
+
+.numero_chassis input {
+    width: 75px;
+    display: inline;
+    text-align: center
+}
+
+.plaque input { width: 50px; text-align: center}
+
+.numero_chassis div, .plaque div {
+    display: inline
+}
+
+/* PLAQUE */
+
+.select-plaque {
+    width: 30px;
+    margin-left: 50px;
+    display: inline-block;
+}
+
+#plaque2, #plaque3 {
+    display: inline
+}
+
+
+ul.list-group > li.list-group-item > a {
+    color: #336e7b
+}
+
+.panel-footer a.btn-primary {
+    color: #fff
+}
+/* REPARATIONS */
+
+th > a {
+    color: #333;
+}
+th > a:hover {
+    color: #336e7b
+}
+
+ul.pagination li a, ul.pagination li a:hover {
+    color: #336e7b;
+    border-color: #336e7b
+}
+
+ul.pagination li.active a, ul.pagination li.active a:hover {
+    background-color: #336e7b;
+    color: #fff;
+    border-color: #336e7b
+}
+
+/* HELPERS */
+
+.spacer {
+    min-width: 100%;
+    height: 20px;
+
+}
+
+
+/* TYPOGRAPHY */
+h1,h2,h3,h4,a, button {
+    font-family: 'Montserrat', sans-serif
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}
+/* INPUTS */
+
+input[type="radio"]:before, .radio input[type="radio"]:before, .radio-inline input[type="radio"]:before {
+    background-color: #336e7b
+}
+
+input[type="radio"]:checked:after, .radio input[type="radio"]:checked:after, .radio-inline input[type="radio"]:checked:after {
+    border-color: #336e7b
+}
+
+/* BUTTONS */
+
+
+#addVehiculeBtn {
+    margin-left: 20px;
+}
+
+.btn-black, .btn-black:hover {
+    margin-top: 10px;
+    background-color: #333;
+    margin-bottom: -20px;
+    width: 100%; 
+    border-radius: 0px;
+    box-shadow: none;
+}
+.well.well-vehicules {
+    padding-left:0px;
+    padding-right:0px;  
+}
+
+.btn-primary  {
+    color: #fff;
+    background-color: #336e7b
+}
+.btn-primary:hover {
+    background-color: #333
+}
+.close {
+    margin-top: 10px;
+    margin-right: 15px
+}
+
+
+/* SCROLLBARS 
+   Cette fonctionnalité n'est disponible que pour les navigateurs utilisant Webkit (Chrome, Opera, Safari, ...)
+   Mozilla a fait le choix de ne pas implémenter cette fonction.
+*/
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    /*border-radius: 10px;*/
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    background-color: #336e7b
+}
+
+
+/* Liens externes (à l'exception des liens .social-link, pour lesquels je ne souhaite pas
+voir apparaître de symbole affichant qu'il s'agit d'un lien externe) */
+
+a[target="_blank"]:not(.social-link)::after {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: 5px;
+    content: "  \f08e";
+}
+
+ul.pagination > li.active > a{
+    z-index:-5;
+}
+
+/* ICONES */
+
+.social-link {
+    color: #336e7b;
+    text-decoration: none;
+    font-size:15px
+}
+a.social-link:hover {
+    color: #000;
+    text-decoration: none;
+
+}
+
+i.fa.fa-file-pdf-o {
+    color: #BB0706
+}
+
+i.fa.fa-file-excel-o {
+   color: #1D7044
+}
+/* ABBREVIATIONS (tooltip) */
+abbr[fake-title]:hover:after {
+    
+    content: attr(fake-title);
+    
+    padding: 4px 8px;
+    
+    position: absolute;
+    left: 150px;
+    top: 40px;
+    z-index: 20;
+    
+    background-color: #336e7b;
+    color: #fff;
+    
+    white-space: nowrap;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px #222;
+
+}
+
+/* MODALS */
+
+.modal-header {
+    background-color: #333;
+}
+
+.modal-header button.close, .modal-header h4 {
+    color: #fff;
+}
+
+.modal-header h4 {
+    font-size: 16px
+}
+
+.label-vehicule {
+    
+    margin-right: 5px;
+    height:  20px;
+    display: block;
+    /* vertical-align: middle; */
+    line-height: 18px;
+    /* margin-top: -3px; */
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    border-radius: 3px;
+    
+    background-color: #336e7b
+}
+
+.well-vehicules {
+  width: 100%;
+  margin-left: 1px;
+  margin-bottom: 0px;
+}
+
+.well-vehicules i, .well-vehicules input, .well-vehicules label {
+    color: #fff
+}
+
+.well-vehicules select {
+    margin-top: 20px;
+    background-color: #fff;
+    color: #336e7b;
+    padding-left: 10px
+}
+
+.well-vehicules i.fa.fa-filter.fa-fw {
+    margin-top: 20px
+}
+.well-vehicules .form-group:first-child {
+    margin-top: 10px
+}
+.order-group i {
+    margin-right: 15px
+}
+
+.order-group label {
+    margin-right: 5px
+}
+
+.well-vehicules input[type='radio']:checked:after {
+    border-color: #fff;
+    background-color: #fff
+}
+
+.well-vehicules input[type='radio']:before, .well-vehicules input[type='radio']:after, 
+.well-vehicules input[type='checkbox']:before, .well-vehicules input[type='checkbox']:after {
+    border-color: #fff
+}
+.well-vehicules input[type="checkbox"]:checked:after,
+.well-vehicules .checkbox input[type="checkbox"]:checked:after,
+.well-vehicules .checkbox-inline input[type="checkbox"]:checked:after,
+#reverse:checked:after{
+    background-color: transparent;
+    color: #336e7b
+}
+
+.search-vehicule-nav input {
+    color: #fff
+}
+
+/* jQuery UI */
+
+.ui-widget-content {
+    background: #333;
+}
+
+.ui-tooltip {
+    box-shadow: #333 2px 2px 2px;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.bg-primary {
+    background-color: #336e7b;
+    color: #fff;
+}
+
+th.text-primary a, th.text-primary a:hover {
+    color: #336e7b;
+}
+
+.tab-pane {
+    padding-top: 10px
+}
+
+.btn-rep {
+    margin-right: 5px
+}
+
+.list-group-item-info {
+    background-color: #336e7b;
+    color: #fff;
+    font-weight: bold;
+    text-align: center
+}
+
+.table-vehicules-list th {
+    text-align: center
+}
+
+.tool-logo {
+    height: 20px;
+    width: 20px;
+}

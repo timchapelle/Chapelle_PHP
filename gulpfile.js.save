@@ -1,0 +1,28 @@
+var shell = require('gulp-shell');
+
+
+
+gulp.task('docs', shell.task([
+    'node_modules/jsdoc/jsdoc.js ' +
+    '-c node_modules/angular-jsdoc/common/conf.json ' + // config file
+    '-t node_modules/angular-jsdoc/angular-template ' + // template file
+    '-d docs ' + // output directory
+    './README.md ' + // to include README.md as index contents
+    '-r dev/js dev/config dev/services dev/controllers dev/directives dev/filters ' // source code directories
+]));
+1
+2
+3
+4
+5
+6
+7
+8
+gulp.task('docs', shell.task([
+    'node_modules/jsdoc/jsdoc.js ' +
+    '-c node_modules/angular-jsdoc/common/conf.json ' + // config file
+    '-t node_modules/angular-jsdoc/angular-template ' + // template file
+    '-d docs ' + // output directory
+    './README.md ' + // to include README.md as index contents
+    '-r dev/js dev/config dev/services dev/controllers dev/directives dev/filters ' // source code directories
+]));

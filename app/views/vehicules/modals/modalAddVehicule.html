@@ -1,0 +1,107 @@
+<div id="modalAddVehicule" class="modal fade" role="dialog" ng-controller="AddVehiculeController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ajouter un véhicule</h4>
+            </div>
+            <form name="vehiculeForm" id="vehiculeForm" novalidate ng-submit="validateVehicule()">
+                <div class="modal-body">
+                    <div class="form-group" ng-class="vehiculeForm.marque.$dirty ? (vehiculeForm.marque.$valid ? 'has-success' : 'has-error') : ''">
+                        <label for="marque" class="control-label">Marque</label>
+                        <input type="text" class="form-control" id="marque" 
+                               name="marque" ng-model="userVehiculeForm.marque" required>
+                        <span class="help-block"
+                              ng-show="vehiculeForm.marque.$dirty && vehiculeForm.marque.$invalid">
+                            Veuillez renseigner la marque du véhicule
+                        </span>
+                    </div>
+                    <div class="form-group" ng-class="vehiculeForm.modele.$dirty ? (vehiculeForm.modele.$valid ? 'has-success' : 'has-error') : ''">
+                        <label for="modele" class="control-label">Modèle</label>
+                        <input type="text" class="form-control" id="modele" 
+                               name="modele" ng-model="userVehiculeForm.modele" required>
+                    </div>
+                    <div class="form-group numero_chassis" ng-class="(vehiculeForm.plaque2.$dirty && vehiculeForm.plaque3.$dirty) ? ((vehiculeForm.plaque2.$valid && vehiculeForm.plaque3.$valid) ? 'has-success' : 'has-error') : ''">
+                        <label for="plaque1" class="control-label">Plaque</label>
+                        <select class='form-control select-plaque' name='plaque1' ng-model='userVehiculeForm.plaque1'>
+                            <option value='0'>0</option>
+                            <option value='1'>1</option>
+                        </select>
+                        <input type="text" class="form-control text-uppercase" id="plaque2" placeholder="ABC"
+                               name="plaque2" ng-model="userVehiculeForm.plaque2" 
+                               ng-pattern="plaquePattern1" required>
+                        <input type="text" class="form-control text-uppercase" id="plaque3" placeholder="123"
+                               name="plaque3" ng-model="userVehiculeForm.plaque3" 
+                               ng-pattern="plaquePattern2" required>
+                        <span class="help-block" ng-show="(vehiculeForm.plaque2.$dirty && vehiculeForm.plaque3.dirty)&& (vehiculeForm.plaque2.$invalid || vehiculeForm.plaque3.$invalid)">
+                            Veuillez respecter le format "[0-1]-[A-Z]{3}-[0-9]{3}"</span>
+                    </div>
+                    <div class="form-group numero_chassis">
+                        <label class="control-label">N° de chassis</label><br>
+                        <div ng-class="vehiculeForm.numero_chassis1.$dirty ? (vehiculeForm.numero_chassis1.$valid ? 'has-success' : 'has-error') : ''">
+                            <input type="text" class="form-inline text-center" id="vehicule_0_numero_chassis1" placeholder="12345" data-vehiculeId="0"
+                                   name="numero_chassis1" ng-model="userVehiculeForm.numero_chassis1" ng-minlength="5" ng-maxlength="5" maxlength="5" move-next required >
+                        </div>
+                        <strong>-</strong>
+                        <div ng-class="vehiculeForm.numero_chassis2.$dirty ? (vehiculeForm.numero_chassis2.$valid ? 'has-success' : 'has-error') : ''">
+                            <input type="text" class="form-inline text-center" id="vehicule_0_numero_chassis2" placeholder="12345" data-vehiculeId="0"
+                                   name="numero_chassis2" ng-model="userVehiculeForm.numero_chassis2" ng-minlength="5" ng-maxlength="5" maxlength="5" move-next required>
+                        </div>
+                        <strong>-</strong>
+                        <div ng-class="vehiculeForm.numero_chassis3.$dirty ? (vehiculeForm.numero_chassis3.$valid ? 'has-success' : 'has-error') : ''">
+                            <input type="text" class="form-inline text-center" id="vehicule_0_numero_chassis3" placeholder="12345" data-vehiculeId="0"
+                                   name="numero_chassis3" ng-model="userVehiculeForm.numero_chassis3" ng-minlength="5" ng-maxlength="5" maxlength="5" move-next required>
+                        </div>
+                        <strong>-</strong>
+                        <div ng-class="vehiculeForm.numero_chassis4.$dirty ? (vehiculeForm.numero_chassis4.$valid ? 'has-success' : 'has-error') : ''">
+                            <input type="text" class="form-inline text-center" id="vehicule_0_numero_chassis4" placeholder="123456" data-vehiculeId="0"
+                                   name="numero_chassis4" ng-model="userVehiculeForm.numero_chassis4" ng-minlength="6" ng-maxlength="6" maxlength="6" required>
+                        </div>
+                        <div class="has-error">
+                            <span class="help-block" 
+                                  ng-show="(vehiculeForm.numero_chassis1.$dirty &&
+                                                          vehiculeForm.numero_chassis2.$dirty &&
+                                                          vehiculeForm.numero_chassis3.$dirty &&
+                                                          vehiculeForm.numero_chassis4.$dirty)
+                                                          &&
+                                                          (vehiculeForm.numero_chassis1.$invalid ||
+                                                                  vehiculeForm.numero_chassis2.$invalid ||
+                                                                  vehiculeForm.numero_chassis3.$invalid ||
+                                                                  vehiculeForm.numero_chassis4.$invalid )">
+
+                                N° de chassis incorrect (modèle : 12345-12345-12345-123456)
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="type" class="control-label">Type</label>
+                        <select class="form-control" id="type" name="type" 
+                                ng-model="userVehiculeForm.type" required
+                                >
+                            <option value="">Veuillez choisir une option</option>
+                            <option ng-repeat="option in options" value="{{option.type}}">{{option.type}}</option>
+                            <option value="autre">Autre ...</option>
+                        </select>
+                        <div class="input-group" ng-show="userVehiculeForm.type === 'autre'">
+                            <span class="input-group-addon"><i class="fa fa-question-circle-o fa-fw"></i></span>
+                            <input class="form-control" type="text" name="autreType" id="autreType" 
+                                   placeholder="Veuillez préciser votre choix"
+                                   ng-model="userVehiculeForm.autreType">
+                            </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                            ng-click="resetForm()">Annuler</button>
+                    <input type="submit" class="btn btn-success"  value="Ajouter" 
+                           ng-disabled="vehiculeForm.$invalid || 
+                                       (userVehiculeForm.type === 'autre' && userVehiculeForm.autreType === '') ||
+                                       (userVehiculeForm.type === 'autre' && !userVehiculeForm.autreType)" >
+                </div>
+                <input type="hidden" name="mode" value="angular">
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://localhost/Chapelle_PHP/docs/v1/sitemap.xml

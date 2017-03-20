@@ -1,0 +1,104 @@
+<div id="modalEditVehicule{{vehicule.id}}" class="modal fade" role="dialog" ng-controller="EditVehiculeController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modifier {{ vehicule.marque + ' ' + vehicule.modele}}</h4>
+            </div>
+            <form name="editVehiculeForm" id="editVehiculeForm{{vehicule.id}}"
+                     novalidate ng-submit="updateVehicule()">
+                <div class="modal-body">
+                    <div class="form-group" 
+                         ng-class="editVehiculeForm.marque.$valid ? 'has-success' : 'has-error'">
+                        <label for="marque">Marque</label>
+                        <input type="text" class="form-control" id="marque" 
+                               name="marque" ng-model="$parent.vehicule.marque" required>
+                        <span class="help-block text-danger"
+                              ng-show="editVehiculeForm.marque.$dirty && editVehiculeForm.marque.$invalid">
+                            Veuillez introduire la marque du véhicule
+                        </span>
+                    </div>
+                    <div class="form-group"
+                         ng-class="editVehiculeForm.modele.$valid ?
+                                                 'has-success' :
+                                                 'has-error'">
+                        <label for="modele">Modèle</label>
+                        <input type="text" class="form-control" id="modele" 
+                               name="modele" ng-model="vehicule.modele" required>
+                        <span class="help-block"
+                              ng-show="editVehiculeForm.modele.$dirty && editVehiculeForm.modele.$invalid">
+                            Veuillez introduire la marque du véhicule
+                        </span>
+                    </div>
+                    <div class="form-group plaque"
+                         ng-class="(editVehiculeForm.plaque2.$invalid ||
+                                                 editVehiculeForm.plaque3.$invalid) ?
+                                                 'has-error' :
+                                                 'has-success'">
+                        <label for="plaque1">Plaque</label>
+                        <select class="form-control select-plaque" name="plaque1" id="plaque1" ng-init="vehicule.plaque1 = vehicule.plaque.slice(0, 1)" ng-model="vehicule.plaque1">
+                            <option ng-repeat="number in [0, 1]">{{number}}</option>
+                        </select>
+                        <b>-</b>
+                        <input type="text" class="form-control text-uppercase" id="plaque2" ng-init="vehicule.plaque2 = vehicule.plaque.slice(2, 5)"
+                               name="plaque2" ng-model="vehicule.plaque2" ng-pattern="plaquePattern2" required>
+                        <b>-</b>
+                        <input type="text" class="form-control" id="plaque3" ng-init="vehicule.plaque3 = vehicule.plaque.slice(6, 9)"
+                               name="plaque3" ng-model="vehicule.plaque3" ng-pattern="plaquePattern3" required>
+                        <span class="help-block"
+                              ng-show="editVehiculeForm.plaque2.$invalid || editVehiculeForm.plaque3.$invalid">
+                            Veuillez respecter le format suivant : 1-ABC-123
+                        </span>
+                    </div>
+                    <div class="form-group numero_chassis">
+                        <label for="numero_chassis">N° de chassis</label>
+                        <div ng-class="editVehiculeForm.numero_chassis1.$valid ? 'has-success' : 'has-error'">
+                            <input type="text" class="form-control" id="vehicule_{{vehicule.id}}_numero_chassis1" 
+                                   name="numero_chassis1" ng-model="vehicule.numero_chassis1" data-vehiculeId="{{vehicule.id}}"
+                                   maxlength="5" ng-minlength="5" ng-maxlength="5" move-next required>
+                        </div>
+                        <b>-</b>
+                        <div ng-class="editVehiculeForm.numero_chassis2.$valid ? 'has-success' : 'has-error'">
+                            <input type="text" class="form-control" id="vehicule_{{vehicule.id}}_numero_chassis2" 
+                                   name="numero_chassis2" ng-model="vehicule.numero_chassis2"  data-vehiculeId="{{vehicule.id}}"
+                                   maxlength="5" ng-minlength="5" ng-maxlength="5" move-next required>
+                        </div>
+                        <b>-</b>
+                        <div ng-class="editVehiculeForm.numero_chassis3.$valid ? 'has-success' : 'has-error'">
+                            <input type="text" class="form-control" id="vehicule_{{vehicule.id}}_numero_chassis3" 
+                                   name="numero_chassis3" ng-model="vehicule.numero_chassis3" data-vehiculeId="{{vehicule.id}}"
+                                   maxlength="5" ng-minlength="5" ng-maxlength="5" move-next required>
+                        </div>
+                        <b>-</b>
+                        <div ng-class="editVehiculeForm.numero_chassis4.$valid ? 'has-success' : 'has-error'">
+                            <input type="text" class="form-control" id="vehicule_{{vehicule.id}}_" 
+                                   name="numero_chassis4" ng-model="vehicule.numero_chassis4" data-vehiculeId="{{vehicule.id}}"
+                                   maxlength="6" ng-minlength="6" ng-maxlength="6" required>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="editVehiculeForm.type.$valid ?
+                                            'has-success' : 'has-error'">
+                        <label for="type">Type</label>
+                        <select class="form-control" id="type" name="type" 
+                                ng-model="vehicule.type">
+                            <option value="">Veuillez choisir une option</option>
+                            <option ng-repeat="option in options" value="{{option.type}}" ng-selected="'vehicule.type == option.type'">
+                                {{option.type}}    
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <input type="hidden" name="id" ng-model="vehicule.id">
+                <input type="hidden" name="mode" value='angular'>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                            ng-click="cancelEdit()">
+                        <i class="fa fa-close fa-fw"></i> Annuler</button>
+                    <button type="submit" class="btn btn-success" ng-disabled="editVehiculeForm.$invalid">
+                        <i class="fa fa-check fa-fw"></i> Enregistrer
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

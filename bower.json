@@ -1,0 +1,34 @@
+{
+  "name": "Chapelle_PHP",
+  "description": "Projet de développement web - Gestion d'un garage",
+  "main": "index.php",
+  "keywords": [
+    "Projet",
+    "Web",
+    "PHP"
+  ],
+  "authors": [
+    "Tim Chapelle"
+  ],
+  "license": "MIT",
+  "homepage": "none",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "font-awesome": "^4.7.0",
+    "bootstrap": "^3.3.7",
+    "font-awesome-animation": "^0.0.10",
+    "jqueryfiletree": "^2.1.4",
+    "angular-cookies": "1.6.2",
+    "angular-autocomplete-demo": "angular-autocomplete#^1.0.1",
+    "angular-toArrayFilter": "^1.0.1",
+    "angular-loading-bar": "^0.9.0"
+  }
+}

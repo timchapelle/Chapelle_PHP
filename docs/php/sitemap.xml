@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/index.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-App.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-App.Controller.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-App.Entites.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-App.Models.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-Core.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-Core.Controller.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-Core.Db.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-Core.Entites.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-Core.Models.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-None.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/namespace-PHP.html</loc>
+</url>
+
+
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Autoloader.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Controller.AppController.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Controller.ErreursController.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Controller.ReparationsController.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Controller.UtilisateursController.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Controller.VehiculesController.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Entites.ReparationsEntite.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Entites.UtilisateursEntite.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Entites.VehiculesEntite.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Models.ReparationsModel.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Models.UtilisateursModel.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-App.Models.VehiculesModel.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-Core.Autoloader.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-Core.Config.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-Core.Controller.Controller.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-Core.Db.Db.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-Core.Entites.Entite.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-Core.Models.Model.html</loc>
+</url>
+<url>
+	<loc>http://localhost/Chapelle_PHP/docs/v1/class-PDO.html</loc>
+</url>
+</urlset>
