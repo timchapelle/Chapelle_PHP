@@ -23,7 +23,7 @@ body > .container {
   background-color: #336e7b;
 }
 .footer span.text-muted {
-  color: #fff;
+  color: #336e7b;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   padding-right: 20px;
@@ -118,7 +118,7 @@ div[id^="reparations"].tab-pane {
 }
 .panel-default > .panel-heading {
   background-color: #333;
-  color: #fff;
+  color: #336e7b;
 }
 .nav-tabs > li.active > a {
   color: #336e7b;

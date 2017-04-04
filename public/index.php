@@ -1,13 +1,12 @@
 <?php
 
-/* Index (fait office de front controller
+/* Index (fait office de front controller)
   Définition d'une constante 'racine' (ROOT) pour faciliter la gestion des URL */
 
 define('ROOT', dirname(__DIR__));
 
 // ROOT = /var/www/html/Chapelle_PHP
 require ROOT . '/app/App.php';
-require_once ROOT . '/assets/TCPDF/vendor/autoload.php';
 App::load();
 
 require_once ROOT . '/assets/Parsedown.php';

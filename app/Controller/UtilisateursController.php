@@ -9,36 +9,27 @@ namespace App\Controller;
  */
 class UtilisateursController extends AppController {
 
-    private $secretKey = "MaSuperCleIncassable";
-
+    /**
+     * Constructeur: chargement du modèle 'Utilisateurs'
+     */
     public function __construct() {
         parent::__construct();
         $this->loadModel('Utilisateurs');
     }
 
     /**
-     * Affichage de la page de connexion
-     */
-    public function login() {
-        
-        $this->app->setTitle("Connexion");
-        
-        $this->render('utilisateurs/login');
-    }
-
-    /**
      * Affichage de la page d'accueil
      */
     public function home() {
-        
+
         $this->app->setTitle("Accueil");
-        
+
         $readme = file_get_contents('../README.md');
         $tools = file_get_contents('../docs/tools.md');
         $utilities = file_get_contents('../docs/utilities.md');
         $versions = file_get_contents('../docs/versions.md');
         $structure = file_get_contents('../docs/structure.md');
-        
+
         $this->render('utilisateurs/home', [
             "readme" => $readme,
             "tools" => $tools,
@@ -46,6 +37,16 @@ class UtilisateursController extends AppController {
             "versions" => $versions,
             "structure" => $structure
         ]);
+    }
+
+    /**
+     * Affichage de la page de connexion
+     */
+    public function login() {
+
+        $this->app->setTitle("Connexion");
+
+        $this->render('utilisateurs/login');
     }
 
     /**
@@ -111,8 +112,9 @@ class UtilisateursController extends AppController {
     public function isLogged() {
         if (isset($_SESSION["login"])) {
             echo json_encode($_SESSION["login"]);
-        } else
+        } else {
             echo "";
+        }
     }
 
 }

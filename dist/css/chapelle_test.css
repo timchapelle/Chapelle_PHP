@@ -31,7 +31,7 @@ body > .container {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     padding-right: 20px;
-    color: #fff;
+    color: #336e7b;
 }
 
 .footer i {
@@ -145,7 +145,7 @@ div[id^='reparations'].tab-pane {
 }
 
 .panel-default > .panel-heading {
-    color: #fff;
+    color: #336e7b;
     background-color: #333;
 }
 

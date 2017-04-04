@@ -465,82 +465,90 @@
 <?php if (isset($msg)) : ?>
     <div class="alert alert-info"><?= $msg ?></div>
 <?php endif; ?>
-    
+
 <div class="table-responsive">
     <table class="table table-striped">
-    <thead>
-        <tr>
-            <th class="<?= $sort == 'id' ? 'text-primary':''?>">
-                <a href="index.php?p=reparations.index&sort=id&order=<?= $nextOrder ?>">
-                    Id
-                    <?= $sort == 'id' ? '<i class="fa fa-sort-numeric-' . $order . '"></i>' : '' ?>
-                </a></th>
-            <th class="<?= $sort == 'intervention' ? 'text-primary':''?>">
-                <a href="index.php?p=reparations.index&sort=intervention&order=<?= $nextOrder ?>">
-                    Intervention
-                    <?= $sort == 'intervention' ? '<i class="fa fa-sort-alpha-' . $order . '"></i>' : '' ?>
-                </a></th>
-            <th class="<?= $sort == 'description' ? 'text-primary':''?>">
-                <a href="index.php?p=reparations.index&sort=description&order=<?= $nextOrder ?>">
-                    Description
-                    <?= $sort == 'description' ? '<i class="fa fa-sort-alpha-' . $order . '"></i>' : '' ?>
-                </a></th>
-            <th class="<?= $sort == 'date' ? 'text-primary':''?>">
-                <a href="index.php?p=reparations.index&sort=date&order=<?= $nextOrder ?>">
-                    Date
-                    <?= $sort == 'date' ? '<i class="fa fa-sort-numeric-' . $order . '"></i>' : '' ?>
-                </a></th>
-            <th class="<?= $sort == 'vehicule_FK' ? 'text-primary':''?>">
-                <a href="index.php?p=reparations.index&sort=vehicule_FK&order=<?= $nextOrder ?>">
-                    Véhicule_FK
-                    <?= $sort == 'vehicule_FK' ? '<i class="fa fa-sort-numeric-' . $order . '"></i>' : '' ?>
-                </a></th>
-            <th>Nom</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($reparations as $reparation) : ?>
+        <thead>
             <tr>
-                <td><?= $reparation->id ?></td>
-                <td><?= $reparation->intervention ?></td>
-                <td><?= nl2br($reparation->description) ?></td>
-                <td><?= $reparation->dateFormatee ?></td>
-                <td class="text-center"><?= $reparation->vehicule_FK ?></td>
-                <td  class="<?= is_object($reparation->vehicule) ? '':'danger'?>">
-                <?=
-                    (is_object($reparation->vehicule) ?
-                            $reparation->vehicule->marque . " " . $reparation->vehicule->modele :
-                            "-")
-                    ?>
-                </td>
-
-                <td><div class="btn-group" role="group">
-                        <a class="btn btn-sm btn-default" 
-                           href="index.php?p=reparations.show&id=<?= $reparation->id ?>">
-                            <i class="fa fa-eye fa-fw"></i></a>
-                        <?php if (isset($_SESSION["login"])) : ?>
-                            <a class="btn btn-sm btn-default" 
-                               href="index.php?p=reparations.edit&id=<?= $reparation->id ?>">
-                                <i class="fa fa-edit fa-fw"></i></a>
-                            <a class="btn btn-sm btn-danger" 
-                               href="index.php?p=reparations.delete&id=<?= $reparation->id ?>">
-                                <i class="fa fa-trash-o fa-fw"></i></a>
-                        </div>
-                    <?php endif; ?>
-                </td>
-
+                <th class="<?= $sort == 'id' ? 'text-primary' : '' ?>">
+                    <a href="index.php?p=reparations.index&sort=id&order=<?= $nextOrder ?>">
+                        Id
+                        <?= $sort == 'id' ? '<i class="fa fa-sort-numeric-' . $order . '"></i>' : '' ?>
+                    </a></th>
+                <th class="<?= $sort == 'intervention' ? 'text-primary' : '' ?>">
+                    <a href="index.php?p=reparations.index&sort=intervention&order=<?= $nextOrder ?>">
+                        Intervention
+                        <?= $sort == 'intervention' ? '<i class="fa fa-sort-alpha-' . $order . '"></i>' : '' ?>
+                    </a></th>
+                <th class="<?= $sort == 'description' ? 'text-primary' : '' ?>">
+                    <a href="index.php?p=reparations.index&sort=description&order=<?= $nextOrder ?>">
+                        Description
+                        <?= $sort == 'description' ? '<i class="fa fa-sort-alpha-' . $order . '"></i>' : '' ?>
+                    </a></th>
+                <th class="<?= $sort == 'date' ? 'text-primary' : '' ?>">
+                    <a href="index.php?p=reparations.index&sort=date&order=<?= $nextOrder ?>">
+                        Date
+                        <?= $sort == 'date' ? '<i class="fa fa-sort-numeric-' . $order . '"></i>' : '' ?>
+                    </a></th>
+                <th class="<?= $sort == 'vehicule_FK' ? 'text-primary' : '' ?>">
+                    <a href="index.php?p=reparations.index&sort=vehicule_FK&order=<?= $nextOrder ?>">
+                        Véhicule_FK
+                        <?= $sort == 'vehicule_FK' ? '<i class="fa fa-sort-numeric-' . $order . '"></i>' : '' ?>
+                    </a></th>
+                <th>Nom</th>
+                <th>Actions</th>
             </tr>
-        <?php endforeach; ?>
+        </thead>
+        <tbody>
+            <?php foreach ($reparations as $reparation) : ?>
+                <tr>
+                    <td><?= $reparation->id ?></td>
+                    <td><?= $reparation->intervention ?></td>
+                    <td><?= nl2br($reparation->description) ?></td>
+                    <td><?= $reparation->dateFormatee ?></td>
+                    <td class="text-center"><?= $reparation->vehicule_FK ?></td>
+                    <td  class="<?= is_object($reparation->vehicule) ? '' : 'danger' ?>">
+                        <?=
+                        (is_object($reparation->vehicule) ?
+                                $reparation->vehicule->marque . " " . $reparation->vehicule->modele :
+                                "-")
+                        ?>
+                    </td>
 
-    </tbody>
-</table>
+                    <td><div class="btn-group" role="group">
+                            <a class="btn btn-sm btn-default" data-toggle="tooltip"
+                               title="Détails"
+                               href="index.php?p=reparations.show&id=<?= $reparation->id ?>">
+                                <i class="fa fa-eye fa-fw"></i></a>
+                            <a class="btn btn-sm btn-warning" data-toggle="tooltip"
+                               title="Fiche du véhicule"
+                               href="index.php?p=vehicules.show&id=<?= $reparation->vehicule_FK ?>">
+                                <i class="fa fa-car fa-fw"></i>
+                            </a>
+                            <?php if (isset($_SESSION["login"])) : ?>
+                                <a class="btn btn-sm btn-success" data-toggle="tooltip"
+                                   title="Modifier"
+                                   href="index.php?p=reparations.edit&id=<?= $reparation->id ?>">
+                                    <i class="fa fa-edit fa-fw"></i></a>
+                                <button class="btn btn-sm btn-danger" data-toggle="modal"
+                                        data-target="#modalDeleteReparation<?= $reparation->id ?>">
+                                    <i class="fa fa-trash-o fa-fw" data-toggle="tooltip"
+                                       title="Supprimer"></i></button>
+                            </div>
+                        <?php endif; ?>
+                    </td>
+
+                </tr>
+            <?php endforeach; ?>
+
+        </tbody>
+    </table>
 </div>
 <div class="col-sm-offset-4">
     <ul class="pagination">
         <?php if ($page > 1): ?>
             <li>
-                <a href="index.php?p=reparations.index&page=<?= $page - 1 ?>&sort=<?=$sort?>&order=<?=$order?>" 
+                <a href="index.php?p=reparations.index&page=<?= $page - 1 ?>&sort=<?= $sort ?>&order=<?= $order ?>" 
                    aria-label="Précédent">
                     <span aria-hidden="true" class="fa fa-caret-left"></span>
                 </a>
@@ -548,14 +556,14 @@
             <?php endif; ?>
             <?php for ($i = 0; $i < $nbReparations / 10; $i++) : ?>
             <li class="<?= $page == $i + 1 ? 'active' : '' ?>">
-                <a href="index.php?p=reparations.index&page=<?= $i + 1 ?>&sort=<?=$sort?>&order=<?=$order?>">
+                <a href="index.php?p=reparations.index&page=<?= $i + 1 ?>&sort=<?= $sort ?>&order=<?= $order ?>">
                     <?= $i + 1 ?>
                 </a>
             </li>
         <?php endfor; ?>
         <?php if ($page < ($nbReparations / 10)) : ?>
             <li>
-                <a href="index.php?p=reparations.index&page=<?= $page + 1 ?>&sort=<?=$sort?>&order=<?=$order?>" 
+                <a href="index.php?p=reparations.index&page=<?= $page + 1 ?>&sort=<?= $sort ?>&order=<?= $order ?>" 
                    aria-label="Précédent">
                     <span aria-hidden="true" class="fa fa-caret-right"><!--&raquo;--></span>
                 </a>
@@ -563,6 +571,7 @@
         <?php endif; ?>
     </ul>
 </div>
+<?php include(ROOT . '/app/views/reparations/modals/modalDeleteReparation.php'); ?>
 <?php
 //Affichage d'une réparation unique
 ?>
@@ -658,7 +667,7 @@ CHAPELLE Timothée
 
     <body>
         <div id="wrapper">
-            <?php include ROOT . '/app/Views/trame/sidebar.php' ?>
+            <?php include ROOT . '/app/views/trame/sidebar.php' ?>
             <div id="page-content-wrapper" class="container" ng-controller="GarageCtrl">
                 <a href="#menu-toggle" class="btn btn-default menu-toggle-btn hidden-xs"
                    ng-show="$parent.showHamburger"  ng-cloak
@@ -670,7 +679,7 @@ CHAPELLE Timothée
                 </a>
                 <?= $content ?>
             </div>
-            <?php include ROOT . '/app/Views/trame/footer.php' ?>
+            <?php include ROOT . '/app/views/trame/footer.php' ?>
         </div>
         <!-- SCRIPTS -->
         <!-- jQuery + TBS-->
@@ -887,7 +896,7 @@ CHAPELLE Timothée
                 <li role="presentation"><a data-target="#fonctionnalites" aria-controls="fonctionnalites" role="tab" data-toggle="tab">Fonctionnalités</a></li>
                 <li role="presentation"><a data-target="#outils" aria-controls="outils" role="tab" data-toggle="tab">Outils</a></li>
                 <li role="presentation"><a data-target="#stats" aria-controls="stats" role="tab" data-toggle="tab">Stats</a></li>
-                <li role="presentation"><a data-target="#versions" aria-controls="messages" role="tab" data-toggle="tab">Versions</a></li>
+                <!--<li role="presentation"><a data-target="#versions" aria-controls="messages" role="tab" data-toggle="tab">Versions</a></li>-->
             </ul>
             <div class="tab-content">
                 <section id="structure" class="tab-pane active" role="tabpanel">
@@ -899,9 +908,9 @@ CHAPELLE Timothée
                 <section id="outils" class="tab-pane" role="tabpanel">
                     <?= $md->text($tools) ?>
                 </section>
-                <section id="versions" class="tab-pane" role="tabpanel">
-                    <?= $md->text($versions) ?>
-                </section>
+<!--                <section id="versions" class="tab-pane" role="tabpanel">
+                    <?php //echo $md->text($versions) ?>
+                </section>-->
                 <section id="stats" class="tab-pane" role="tabpanel">
                     <div class="col-sm-9">
                         <ul class="list-group">
@@ -1248,7 +1257,7 @@ CHAPELLE Timothée
                                         <span class="pull-right badge">
                                             {{ reparation.date | date: 'dd-MM-yyyy' }}
                                         </span>
-                                        <div ng-include="'../app/Views/reparations/modals/modalShowReparation.html'"></div>
+                                        <div ng-include="'../app/views/reparations/modals/modalShowReparation.html'"></div>
                                     </li>
                                 </ul>
                             </div>
@@ -1256,14 +1265,14 @@ CHAPELLE Timothée
                     </div>
                 </div>
             </div>
-            <div ng-include="'../app/Views/vehicules/modals/modalEditVehicule.html'"></div>
-            <div ng-include="'../app/Views/vehicules/modals/modalAddReparation.html'"
+            <div ng-include="'../app/views/vehicules/modals/modalEditVehicule.html'"></div>
+            <div ng-include="'../app/views/vehicules/modals/modalAddReparation.html'"
         </div>
     </div>
     <!-- Modal ajout d'un véhicule -->
 </div>
 </div>
-<div ng-include="'../app/Views/vehicules/modals/modalAddVehicule.html'"></div>
+<div ng-include="'../app/views/vehicules/modals/modalAddVehicule.html'"></div>
 </div>
 <?php
 /*
@@ -1277,7 +1286,7 @@ CHAPELLE Timothée
 </ol>
 <!-- Recherche / Filtres -->
 
-<?php include(ROOT . '/app/Views/vehicules/search.php'); ?>
+<?php include(ROOT . '/app/views/vehicules/search.php'); ?>
 
 <div class="spacer"></div>
 <!-- Véhicules -->
@@ -1285,24 +1294,15 @@ CHAPELLE Timothée
     <div class="container">
         <div class="col-sm-10">
             <!-- Boutons -->
-            <div class="btn-group">
-                <?php if (isset($_SESSION["login"])) : ?>
+
+            <?php if (isset($_SESSION["login"])) : ?>
+                <div class="btn-group">
                     <a class="btn btn-sm btn-default" href="index.php?p=vehicules.edit" style="margin-left:15px"> 
                         <i class="fa fa-plus fa-fw"></i> Ajouter un véhicule
                     </a>
-                <?php endif; ?>
-                <a class="btn btn-sm btn-default" href="index.php?p=vehicules.exportAllAsPDF">
-                    <i class="fa fa-file-pdf-o fa-fw"></i> Export PDF
-                </a>
-                <a class="btn btn-sm btn-default" href="index.php?p=vehicules.exportAsCSV">
-                    <i class="fa fa-file-excel-o fa-fw"></i> Export CSV
-                </a>
-                <?php if (isset($_SESSION["login"])) : ?>
-                    <a class="btn btn-sm btn-default" href="#" id="csv-btn">
-                        <i class="fa fa-upload fa-fw"></i>  Import CSV
-                    </a>
-                <?php endif; ?>
-            </div>
+
+                </div>
+            <?php endif; ?>
             <!-- Boutons affichage -->
             <div id="view-group" class="btn-group pull-right">
                 <button class="btn btn-sm btn-default" id="show-list">
@@ -1311,41 +1311,6 @@ CHAPELLE Timothée
                 <button class="btn btn-sm btn-primary" id="show-panels">
                     <i class="fa fa-columns fa-fw"></i>
                 </button>
-            </div>
-            <!-- Alerte CSV -->
-            <div id="alert-csv" class="hide">
-                <div class='spacer'></div>
-                <div class="alert alert-info">
-                    <div class="well" id="response" style="display:none;margin-top:10px">
-                        <form id="csv-form">
-                            <span id="response-txt"></span>
-                            <input id="csv-input" name="csv" type="file" class="hide">
-                            <button type="submit" id="submit-csv" class="btn btn-sm btn-success pull-right">
-                                <i class="fa fa-paper-plane-o fa-fw"></i> Envoyer
-                            </button>
-                        </form>
-                    </div>
-                    <dl>
-                        <button class="btn btn-sm btn-default" id="csv-btn-2"> Choisir un fichier</button>
-                        <dt>Format à respecter : </dt>
-                        <dd>
-                            L'ordre des champs est le suivant : ID, Marque, Modèle, Plaque, Numéro de chassis, Type <br>
-                            Il ne doit pas y avoir d'en-têtes aux colonnes.
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>ID</th>
-                                    <td>0 pour un nouveau véhicule ou l'id du véhicule pour un update</td>
-                                </tr>
-                                <tr><th>Marque</th><td>Chaîne de caractères</td></tr>
-                                <tr><th>Modèle</th><td>Chaîne de caractères</td></tr>
-                                <tr><th>Plaque</th><td>Exemples : 1-ABC-123, 0-DEF-456, ...</td></tr>
-                                <tr><th>N° de chassis</th><td>Exemples : 1-ABC-123, 0-DEF-456, ...</td></tr>
-                            </table>
-                        </dd>
-                    </dl>
-                    0, "VW", "Golf", "1-ABC-123","12345-12345-12345-123456","Voiture" <br>
-                    0, "Renault", "Megane", "1-DEF-456","54321-98765-32154-654321","Tracteur"
-                </div>
             </div>
         </div>
     </div>
@@ -1373,10 +1338,13 @@ CHAPELLE Timothée
             <div class="alert alert-success"><?= $message ?></div>
         <?php endif; ?>
         <!-- Panels -->
-        <?php include(ROOT . '/app/Views/vehicules/panels.php'); ?>
+        <?php include(ROOT . '/app/views/vehicules/panels.php'); ?>
 
         <!-- Liste -->
-        <?php include(ROOT . '/app/Views/vehicules/list.php'); ?>
+        <?php include(ROOT . '/app/views/vehicules/list.php'); ?>
+
+        <!-- Alertes suppression --> 
+        <?php include(ROOT . '/app/views/vehicules/modals/modalDeleteVehicule.php'); ?>
     <?php endif; ?>
 </div>
 <div id="vehicules-list" style="display:none">
@@ -1454,7 +1422,7 @@ CHAPELLE Timothée
                                             <i class="fa fa-wrench fa-fw"></i> Ajouter une réparation</a></li>
                                     <li><a href="index.php?p=vehicules.edit&id=<?= $vehicule->id ?>">
                                             <i class="fa fa-edit fa-fw"></i> Modifier</a></li>
-                                    <li><a href="index.php?p=vehicules.delete&id=<?= $vehicule->id ?>">
+                                    <li><a href="#" data-toggle="modal" data-target="#modalDeleteVehicule_<?=$vehicule->id?>">
                                             <i class="fa fa-trash-o fa-fw"></i> Supprimer</a></li>
                                 <?php endif; ?>
                             </ul>
@@ -1612,28 +1580,7 @@ CHAPELLE Timothée
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Réparations (<?= count($vehicule->reparations) ?>)
-                    <?php if(count($vehicule->reparations) > 0) : ?>
-                    <div class="dropdown pull-right">
-                        <a class="btn btn-xs btn-default" 
-                           data-toggle="dropdown">
-                            <i class="fa fa-download fa-fw"
-                               data-toggle='tooltip'
-                               title='Exporter les réparations'></i>
-                        </a>
-                        <ul class='dropdown-menu'>
-                            <li>
-                                <a href="index.php?p=vehicules.exportAsPDF&id=<?= $vehicule->id ?>">
-                                    <i class="fa fa-file-pdf-o fa-fw"></i> Export PDF
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php?p=vehicules.exportReparationsAsCSV&id=<?= $vehicule->id ?>">
-                                    <i class="fa fa-file-excel-o fa-fw"></i> Export CSV
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <?php endif; ?>
+                    
                     <div class="btn-group pull-right btn-rep">
                         <a class="btn btn-xs btn-default show-reparations" data-slide="reparations" href="#"
                            data-toggle="tooltip" title="Masquer les réparations">
@@ -1694,3 +1641,63 @@ CHAPELLE Timothée
     </div>
 </div>
 
+
+<!-- Confirmation de la suppression d'une réparation -->
+<?php foreach ($reparations as $r): ?>
+    <!-- Modal -->
+    <div id="modalDeleteReparation<?= $r->id ?>" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirmer la suppression</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Etes-vous sûr de vouloir supprimer cette réparation ?</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-default" data-dismiss="modal">
+                        <i class="fa fa-close fa-fw"></i> Surtout pas!</a>
+                    <a class="btn btn-warning" href="index.php?p=reparations.delete&id=<?= $r->id ?>">
+                        <i class='fa fa-trash-o fa-fw'></i> Supprimer !
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<?php
+/*
+ * Modal d'avertissement avant la suppression d'un véhicule 
+ * 
+ */
+
+foreach ($vehicules as $v):
+    ?>
+    <!-- Modal -->
+    <div id="modalDeleteVehicule_<?= $v->id ?>" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirmer la suppression</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Etes-vous sûr de vouloir supprimer ce véhicule ?</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-default" data-dismiss="modal">
+                        <i class="fa fa-close fa-fw"></i> Surtout pas!</a>
+                    <a class="btn btn-warning" href="index.php?p=vehicules.delete&id=<?= $v->id ?>">
+                        <i class='fa fa-trash-o fa-fw'></i> Supprimer !
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>

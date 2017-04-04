@@ -28,6 +28,7 @@ Framework/Librairie JS
     *   Plugin : <a href="https://jqueryui.com" target="_blank">jQuery UI</a> (module **datepicker**)
 
 Outils CSS
+: ![Less logo](http://lesscss.org/public/img/logo.png) {.tool-logo} <a href="http://lesscss.org" target="_blank"> Less </a>
 : ![BS logo](https://www.seeklogo.net/wp-content/uploads/2016/06/bootstrap-logo-vector-download.jpg) {.tool-logo}  <a href="https://getbootstrap.com" target="_blank">Bootstrap 3.3.7</a>
 : ![FA logo](https://techinfographics.com/wp-content/uploads/2014/06/font_awesome.png) {.tool-logo}  <a href="http://fontawesome.io" target="_blank">Font Awesome 4</a>
 

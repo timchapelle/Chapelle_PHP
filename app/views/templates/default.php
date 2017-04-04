@@ -23,7 +23,7 @@ CHAPELLE Timothée
         <!-- CSS concaténés et minifiés -->
          
         <!-- Twitter Bootstrap -->
-        <link href="../assets/css/bootstrap_sandstone.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/bootstrap_paper.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/simple-sidebar.css" rel="stylesheet" type="text/css"/>
         <!-- Font-Awesome -->
         <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>

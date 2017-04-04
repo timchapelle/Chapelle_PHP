@@ -44,28 +44,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Réparations (<?= count($vehicule->reparations) ?>)
-                    <?php if(count($vehicule->reparations) > 0) : ?>
-                    <div class="dropdown pull-right">
-                        <a class="btn btn-xs btn-default" 
-                           data-toggle="dropdown">
-                            <i class="fa fa-download fa-fw"
-                               data-toggle='tooltip'
-                               title='Exporter les réparations'></i>
-                        </a>
-                        <ul class='dropdown-menu'>
-                            <li>
-                                <a href="index.php?p=vehicules.exportAsPDF&id=<?= $vehicule->id ?>">
-                                    <i class="fa fa-file-pdf-o fa-fw"></i> Export PDF
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php?p=vehicules.exportReparationsAsCSV&id=<?= $vehicule->id ?>">
-                                    <i class="fa fa-file-excel-o fa-fw"></i> Export CSV
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <?php endif; ?>
+                    
                     <div class="btn-group pull-right btn-rep">
                         <a class="btn btn-xs btn-default show-reparations" data-slide="reparations" href="#"
                            data-toggle="tooltip" title="Masquer les réparations">

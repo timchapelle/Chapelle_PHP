@@ -18,24 +18,15 @@
     <div class="container">
         <div class="col-sm-10">
             <!-- Boutons -->
-            <div class="btn-group">
-                <?php if (isset($_SESSION["login"])) : ?>
+
+            <?php if (isset($_SESSION["login"])) : ?>
+                <div class="btn-group">
                     <a class="btn btn-sm btn-default" href="index.php?p=vehicules.edit" style="margin-left:15px"> 
                         <i class="fa fa-plus fa-fw"></i> Ajouter un véhicule
                     </a>
-                <?php endif; ?>
-                <a class="btn btn-sm btn-default" href="index.php?p=vehicules.exportAllAsPDF">
-                    <i class="fa fa-file-pdf-o fa-fw"></i> Export PDF
-                </a>
-                <a class="btn btn-sm btn-default" href="index.php?p=vehicules.exportAsCSV">
-                    <i class="fa fa-file-excel-o fa-fw"></i> Export CSV
-                </a>
-                <?php if (isset($_SESSION["login"])) : ?>
-                    <a class="btn btn-sm btn-default" href="#" id="csv-btn">
-                        <i class="fa fa-upload fa-fw"></i>  Import CSV
-                    </a>
-                <?php endif; ?>
-            </div>
+
+                </div>
+            <?php endif; ?>
             <!-- Boutons affichage -->
             <div id="view-group" class="btn-group pull-right">
                 <button class="btn btn-sm btn-default" id="show-list">
@@ -44,41 +35,6 @@
                 <button class="btn btn-sm btn-primary" id="show-panels">
                     <i class="fa fa-columns fa-fw"></i>
                 </button>
-            </div>
-            <!-- Alerte CSV -->
-            <div id="alert-csv" class="hide">
-                <div class='spacer'></div>
-                <div class="alert alert-info">
-                    <div class="well" id="response" style="display:none;margin-top:10px">
-                        <form id="csv-form">
-                            <span id="response-txt"></span>
-                            <input id="csv-input" name="csv" type="file" class="hide">
-                            <button type="submit" id="submit-csv" class="btn btn-sm btn-success pull-right">
-                                <i class="fa fa-paper-plane-o fa-fw"></i> Envoyer
-                            </button>
-                        </form>
-                    </div>
-                    <dl>
-                        <button class="btn btn-sm btn-default" id="csv-btn-2"> Choisir un fichier</button>
-                        <dt>Format à respecter : </dt>
-                        <dd>
-                            L'ordre des champs est le suivant : ID, Marque, Modèle, Plaque, Numéro de chassis, Type <br>
-                            Il ne doit pas y avoir d'en-têtes aux colonnes.
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>ID</th>
-                                    <td>0 pour un nouveau véhicule ou l'id du véhicule pour un update</td>
-                                </tr>
-                                <tr><th>Marque</th><td>Chaîne de caractères</td></tr>
-                                <tr><th>Modèle</th><td>Chaîne de caractères</td></tr>
-                                <tr><th>Plaque</th><td>Exemples : 1-ABC-123, 0-DEF-456, ...</td></tr>
-                                <tr><th>N° de chassis</th><td>Exemples : 1-ABC-123, 0-DEF-456, ...</td></tr>
-                            </table>
-                        </dd>
-                    </dl>
-                    0, "VW", "Golf", "1-ABC-123","12345-12345-12345-123456","Voiture" <br>
-                    0, "Renault", "Megane", "1-DEF-456","54321-98765-32154-654321","Tracteur"
-                </div>
             </div>
         </div>
     </div>
@@ -110,8 +66,8 @@
 
         <!-- Liste -->
         <?php include(ROOT . '/app/views/vehicules/list.php'); ?>
-        
+
         <!-- Alertes suppression --> 
-        <?php include(ROOT . '/app/views/vehicules/modals/modalDeleteReparation.php'); ?>
+        <?php include(ROOT . '/app/views/vehicules/modals/modalDeleteVehicule.php'); ?>
     <?php endif; ?>
 </div>

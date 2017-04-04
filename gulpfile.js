@@ -32,8 +32,13 @@ gulp.task('docs', shell.task([
             '-r assets/js' // source code directories
 ]));
 
+/* Suppression du répertoire dist/ */
+gulp.task('clean:dist', function () {
+    return del(paths.dist);
+});
+
 /* Réorganisation des fichiers .css + beautify + prefixes css3 automatiques */
-gulp.task('css', function () {
+gulp.task('css', ['clean:dist'], function () {
     return gulp.src('./assets/css/*.css')
             .pipe(comb())
             .pipe(cssbeautify())
@@ -42,7 +47,7 @@ gulp.task('css', function () {
 });
 
 /* Minification des feuilles de style */
-gulp.task('minify', function () {
+gulp.task('minify', ['css'], function () {
     return gulp.src('./assets/css/*.css')
             .pipe(csso())
             .pipe(rename({
@@ -51,14 +56,8 @@ gulp.task('minify', function () {
             .pipe(gulp.dest('./dist/css/'));
 });
 
-/* Suppression du répertoire dist/ */
-gulp.task('clean:dist', function () {
-    return del(paths.dist);
-});
-
-
 /* Copier les fichiers nécessaires des librairies installées via bower */
-gulp.task('copy:bower', function () {
+gulp.task('copy:bower', ['minify'], function () {
     return gulp.src(mainBowerFiles(['**/*.js', '!**/*.min.js']))
             .pipe(gulp.dest(paths.dist + '/js/libs'))
             .pipe(uglify())
@@ -67,7 +66,7 @@ gulp.task('copy:bower', function () {
 });
 
 /* Remplacement, dans les fichiers .php, de '../bower_components' par '../assets/js/libs' */
-gulp.task('replace:bower', function () {
+gulp.task('replace:bower', ['copy:bower'], function () {
     return gulp.src([
         './app/Views/templates/default.php'
     ], {base: './'})
@@ -76,14 +75,14 @@ gulp.task('replace:bower', function () {
 });
 
 /* Concaténation + minification des scripts JS */
-gulp.task('concatJS', function () {
+gulp.task('concatJS', ['copy:bower'], function () {
     return gulp.src('./assets/js/*.js')
             .pipe(concat('bigJS.js'))
             .pipe(gulp.dest(paths.dist + '/js/'));
 });
 
 /* Uglification */
-gulp.task('uglifyJS', function () {
+gulp.task('uglifyJS', ['concatJS'], function () {
     return gulp.src('./dist/js/bigJS.js')
             .pipe(ngAnnotate())
             .pipe(uglify())
@@ -99,18 +98,18 @@ gulp.task('useref', function () {
 
 /* Fonts */
 
-gulp.task('fonts', function () {
+gulp.task('fonts',['uglifyJS'], function () {
     return gulp.src([
         './bower_components/font-awesome/fonts/fontawesome-webfont.*'])
             .pipe(gulp.dest('dist/fonts/'));
 });
-gulp.task('img', function () {
+gulp.task('img', ['fonts'], function () {
     return gulp.src('./bower_components/jqueryfiletree/dist/images/*')
             .pipe(gulp.dest(paths.dist + '/css/images/'));
 });
 
 
-gulp.task('concatPHP', function () {
+gulp.task('concatPHP',['img'], function () {
     return gulp.src(['./app/Controller/*.php', './app/Entites/*.php',
         './app/Models/*.php', './app/App.php', './app/Autoloader.php',
         './core/**/*.php', './core/*.php', './public/index.php'])
@@ -118,21 +117,13 @@ gulp.task('concatPHP', function () {
             .pipe(gulp.dest(paths.dist + '/php/'));
 });
 
-gulp.task('concatViews', function () {
-    return gulp.src(['./app/Views/**/*.html', './app/Views/**/*.php', './app/Views/**/**/*.html'])
+gulp.task('concatViews',['concatPHP'], function () {
+    return gulp.src(['./app/views/**/*.html', './app/views/**/*.php', './app/views/**/**/*.html'])
             .pipe(concat('bigViews.php'))
             .pipe(gulp.dest(paths.dist + '/php/'));
 });
 
 /* Tâche "récapitulative". Terminal : $ gulp prod */
 gulp.task('prod', [
-    'clean:dist',
-    'docs',
-    'css', 'minify',
-    'copy:bower', 
-    'concatJS', 'uglifyJS',
-    'fonts',
-    'img',
-    'concatViews',
-    'concatPHP'
+    'concatViews'
 ]);

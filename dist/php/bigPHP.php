@@ -19,7 +19,7 @@
       */
      public function __construct() {
          parent::__construct();
-         $this->viewPath = ROOT . '/app/Views/';
+         $this->viewPath = ROOT . '/app/views/';
          $this->template = 'default';
      }
  
@@ -81,6 +81,7 @@ class ReparationsController extends AppController {
      */
 
     public function index($msg = null) {
+        
         $this->app->setTitle('Réparations');
         $page = 1;
 
@@ -904,7 +905,9 @@ class VehiculesController extends AppController {
         }
     }
 
-    /**
+}
+
+ /**
      * Exportation de tous les véhicules au format PDF (sous forme de tableau)
      */
     public function exportAllAsPDF() {
@@ -982,7 +985,7 @@ class VehiculesController extends AppController {
         if ($vehicule) {
             $vehicule->reparations = $this->Reparations->findByVehiculeId($_GET["id"]);
             // Création d'un nouveau document PDF
-            $pdf = $this->getPDF($vehicule . marque . ' ' . $vehicule->modele);
+            $pdf = $this->getPDF($vehicule->marque . ' ' . $vehicule->modele, 'landscape');
 
             // Définition du contenu du document
             $html = "<h1>" . $vehicule->marque . ' ' . $vehicule->modele . "</h1>";
@@ -997,19 +1000,21 @@ class VehiculesController extends AppController {
             // Si le véhicule a des réparations, on les liste
             if (!empty($vehicule->reparations)) {
                 $cpt = 1;
+                $html .= '<style>th{font-weight:bold;text-align:center;background-color:#ececec}</style>';
+                $html .= '<table border="1" cellpadding="5">';
+                $html .= '<tr><th width="40">Id</th><th>Intervention</th><th>Description</th><th>Date</th></tr>';
                 foreach ($vehicule->reparations as $rep) {
-                    if ($cpt > 1) {
-                        $html .= "&nbsp;";
-                    }
                     $cpt++;
-                    $html .= "<ul>";
-                    $html .= "<li>Id : " . $rep->id . "</li>";
-                    $html .= "<li>Intervention : " . $rep->intervention . "</li>";
-                    $html .= "<li>Description : " . $rep->description . "</li>";
-                    $html .= "<li>Date : " . date('d/m/Y', strtotime($rep->date)) . "</li>";
-                    $html .= "</ul>";
-                    $html .= "<hr>";
+                    
+                    $html .= "<tr>";
+                    $html .= '<td width="40">'. $rep->id . "</td>";
+                    $html .= "<td>". $rep->intervention . "</td>";
+                    $html .= "<td>". $rep->description . "</td>";
+                    $html .= "<td>". date('d/m/Y', strtotime($rep->date)) . "</td>";
+                   
+                    $html .= "</tr>";
                 }
+                $html .= "</table>";
             } else {
                 // Sinon, on affiche un message
                 $html .= "<h5>Pas encore de réparations pour ce véhicule</h5>";
@@ -1136,8 +1141,6 @@ class VehiculesController extends AppController {
             echo json_encode($response);
         }
     }
-
-}
 
 <?php
 
@@ -1962,14 +1965,13 @@ class Model {
 
 <?php
 
-/* Index (fait office de front controller
+/* Index (fait office de front controller)
   Définition d'une constante 'racine' (ROOT) pour faciliter la gestion des URL */
 
 define('ROOT', dirname(__DIR__));
 
 // ROOT = /var/www/html/Chapelle_PHP
 require ROOT . '/app/App.php';
-require_once ROOT . '/assets/TCPDF/vendor/autoload.php';
 App::load();
 
 require_once ROOT . '/assets/Parsedown.php';

@@ -1,100 +1,0 @@
-<!doctype html><html>  <head>    <meta charset="utf-8">    <base href="../">    <title>JSDoc: source : app.js</title>    <link href="css/prettify-tomorrow.css" type="text/css" rel="stylesheet">    <link href="css/site.css" type="text/css" rel="stylesheet">  </head>  <body ng-app="">    <nav id="toc">      <input placeholder="Filter" id="filter-input" class="col12 block field" type="text">      <div class="nav-wrapper">      <h2><a href="index.html">Index</a></h2>      <ul class="module">        <!-- angular_module -->        <h2 class="module">          <a chref="" ng-click="moduleangular_module = !moduleangular_module">            module: angular_module          </a>          <i ng-cloak="" ng-show="moduleangular_module">+</i>        </h2>        <li id="angular_module" ng-hide="moduleangular_module">          <ul class="group">            <h2>              <a href="" ng-click="angular_moduleundefined = !angular_moduleundefined">                undefined              </a>              <i ng-cloak="" ng-show="angular_moduleundefined">+</i>            </h2>            <ul ng-hide="angular_moduleundefined">              <li>                <a href="angular_module.garage.html">garage</a>              </li>            </ul>          </ul>        </li>      </ul>      </div>    </nav>    <div id="content" class="page-wrap">      <h1 class="title">        source : app.js      </h1>      <div id="main" class="big-container">        <!-- source code html -->        <article>          <pre class="prettyprint source linenums"><code>/* 
- * Initialisation de l'app Angular JS
- */
-'use strict';
-/**
- * Module principal de l'application.
- * Injection de 2 dépendances : ngCookies (pour la gestion des cookies) et
- * angular-toArrayFilter, pour une gestion plus facile des fonctions de tri
- * @class angular_module.garage
- * @memberOf angular_module
- */
-angular.module('garage', ['ngCookies', 'angular-toArrayFilter'])
-        /**
-         * Directive pour passer au champ suivant lorsqu'on a rentré le nombre
-         * de caractère correspondant à la longueur maximale définie grâce
-         * à l'attribut maxlength.
-         * @param {type} e Event
-         * @return {undefined}
-         */
-        .directive("moveNext", function () {
-            return {
-                /**
-                 * Restriction de la directive : A
-                 * Signifie que l'on peut utiliser cette directive comme attribut
-                 * de n'importe quel élément HTML.
-                 * @example &lt;input type="number" name="plaque1" id="plaque1" move-next>
-                 */
-                restrict: "A",
-                /**
-                 * link : Fonction à exécuter lorsque l'attribut est présent.
-                 * @param {scope} $scope
-                 * @param {DOMelement} element
-                 * @return {undefined}
-                 */
-                link: function ($scope, element) {
-                    element.on("input", function (e) {
-                        if (element.val().length == element.attr("maxlength")) {
-                            console.log('Longueur maximale atteinte');
-                            /**
-                             * @var {int} id Correspond au dernier chiffre de 
-                             * l'id de l'input
-                             */
-                            var id = element.attr('id').slice(-1);
-                            /**
-                             * @var {int} vehiculeId L'id du véhicule correspondant
-                             */
-                            var vehiculeId = element.attr('data-vehiculeId');
-                            console.log(id, vehiculeId);
-                            /**
-                             * Concaténation pour récupérer l'id unique du champ
-                             * de formulaire suivant
-                             */
-                            id = '#vehicule_' + parseInt(vehiculeId, 10) + '_numero_chassis' + (parseInt(id, 10) + 1);
-                            console.log(id);
-                            /**
-                             * @var {DOMelement} nextElement Le champ suivant
-                             */
-                            var nextElement = angular.element(id);
-                            console.log(nextElement);
-                            if (nextElement.length) {
-                                nextElement[0].focus();
-                            } else {
-                                console.log('Dernier champ');
-                            }
-                        } else {
-                            console.log('Longueur maximale pas encore atteinte');
-                        }
-                    });
-                }
-            };
-        })
-        /**
-         * Directive pour afficher un message de chargement lors de l'exécution
-         * de requêtes asynchrones
-         */
-        .directive("garageLoader", function () {
-            return {
-                /**
-                 * restrict: E --> s'utilise comme un élément
-                 * @example &lt;garageLoader>&lt;/garageLoader>
-                 */
-                restrict: "E",
-                /**
-                 * replace : true --> On remplace l'élément par le template qui suit
-                 */
-                replace: true,
-                /**
-                 * template : le bout de code HTML à insérer à la place du tag
-                 */
-                template: "&lt;h4>&lt;i class='fa fa-cog fa-spin'>&lt;/i> Chargement en cours&lt;/h4>"
-            };
-        })
-        /**
-         * Configuration pour intercepter les requêtes HTTP
-         */
-        .config(['$httpProvider', function ($httpProvider) {
-                $httpProvider.interceptors.push('LoadingInterceptor');
-            }]);
-;
-</code></pre>        </article>        <!-- index.html -->        <!-- class files -->      </div>      <footer style="clear:both">        Documentation generated by        <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a>        using        <a href="https://github.com/allenhwkim/angular-jsdoc">Angular-JSDoc template</a>      </footer>    </div>    <script src="js/prettify.js"></script>    <script src="js/angular.min.js"></script>    <script src="js/site.js"></script>    <!--%= prettyJson %-->    <script>      prettyPrint();      var lineNo = window.location.hash.match(/#line([0-9]+)$/);      lineNo && document.querySelector("ol li:nth-child("+(lineNo[1])+")").scrollIntoView();    </script>  </body></html>

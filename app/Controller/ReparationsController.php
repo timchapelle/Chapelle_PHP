@@ -270,10 +270,10 @@ class ReparationsController extends AppController {
                 "date" => $userData["date"]
             ]);
 
-            if ($vU && $_POST["mode"] !== "angular") {
+            if ($vU && $_POST["mode"] !== "angular") { // version PHP
                 $this->index("Réparation mise à jour avec succès");
             } else if ($vU) {
-                echo "succes";
+                echo "succes"; // version Angular
             }
         } else {
             $this->edit($_POST["originalVehiculeFK"], $errors);
@@ -282,7 +282,6 @@ class ReparationsController extends AppController {
 
     /**
      * Suppression d'une réparation 
-     * @todo Vérifier que l'id existe dans la db.
      */
     public function delete() {
         if (isset($_SESSION["login"])) {
@@ -304,17 +303,17 @@ class ReparationsController extends AppController {
     }
 
     /**
-     * Afficher une réparation
+     * Affichage d'une réparation
      */
     public function show() {
 
-        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $id = $this->validateInt($_GET["id"]);
         if ($id > 0) {
-            $r = $this->Reparations->find($id);
+            $reparation = $this->Reparations->find($id);
         }
         if (isset($r) && $r) {
             $this->app->setTitle($r->intervention);
-            $this->render('reparations/show', ["reparation" => $r]);
+            $this->render('reparations/show', ["reparation" => $reparation]);
         } else {
             $this->notFound();
         }

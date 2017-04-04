@@ -1,0 +1,560 @@
+@import "variables.less";
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px;
+    >.container {
+        padding: 60px 15px 0;
+    }
+}
+#page-content-wrapper {
+    margin-bottom: 50px;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: @ming;
+    span.text-muted {
+        color: @white;
+        font-family: @montserrat;
+        font-weight: bold;
+        padding-right: 20px;
+    }
+    i {
+        position: absolute;
+        right: 5px;
+        top: 16px;
+        &:hover {
+            color: @black;
+        }
+    }
+    >.container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+menu-toggle-btn {
+    i {
+        color: @ming;
+    }
+}
+.sidebar-caret {
+    position: relative;
+    top: 15px;
+    right: 20px;
+}
+li.collapse {
+    a {
+        padding-left: 20px;
+    }
+}
+#vehiculeMenu {
+    a {
+        img {
+            height: 20px;
+            margin-right: 5px;
+        }
+    }
+}
+.search-vehicule-nav {
+    padding-left: 20px;
+    button.btn {
+        background-color: @transparent;
+    }
+    input {
+        color: @white;
+    }
+}
+.search-list-group-item {
+    background: rgba(51,110,123,.2);
+    color: @white;
+    width: 185px;
+    min-height: 40px;
+    max-height: 55px;
+    margin-left: 20px;
+    .media-heading {
+        margin-left: -10px;
+        margin-bottom: -10px;
+        margin-top: 10px;
+        color: @ming;
+        text-align: left;
+    }
+    .media-left {
+        img {
+            margin-top: 10px;
+            margin-left: 5px;
+        }
+    }
+}
+ol.breadcrumb {
+    li {
+        a {
+            color: @ming;
+            &:hover {
+                color: @black;
+                text-decoration: none;
+            }
+        }
+    }
+}
+.well {
+    background-color: @ming;
+    color: @white;
+    a {
+        color: @white;
+        text-decoration: none;
+        &:hover {
+            color: @white;
+            text-decoration: none;
+        }
+    }
+}
+.jumbotron {
+    h1 {
+        color: @ming;
+    }
+    h2 {
+        color: @anthracite;
+    }
+}
+.panel-body {
+    min-height: 225px;
+}
+div[id^="reparations"].tab-pane {
+    height: 120px;
+    overflow-y: scroll;
+    width: 100%;
+}
+.panel-default {
+    >.panel-heading {
+        background-color: @anthracite;
+        color: @white;
+    }
+}
+.nav-tabs {
+    >li.active {
+        >a {
+            color: @ming;
+            box-shadow: inset 0 -2px 0 #336e7b;
+            &:hover {
+                color: @ming;
+                box-shadow: inset 0 -2px 0 #336e7b;
+            }
+        }
+    }
+    >li {
+        >a {
+            &:hover {
+                color: @ming;
+                box-shadow: inset 0 -2px 0 #336e7b;
+            }
+        }
+    }
+}
+.order-group {
+    margin-top: 20px;
+    margin-left: 18px;
+    i {
+        margin-right: 15px;
+    }
+    label {
+        margin-right: 5px;
+    }
+}
+.numero_chassis {
+    input {
+        width: 75px;
+        display: inline;
+        text-align: center;
+    }
+    div {
+        display: inline;
+    }
+}
+.plaque {
+    input {
+        width: 50px;
+        text-align: center;
+    }
+    div {
+        display: inline;
+    }
+}
+.select-plaque {
+    width: 30px;
+    margin-left: 50px;
+    display: inline-block;
+}
+#plaque2 {
+    display: inline;
+}
+#plaque3 {
+    display: inline;
+}
+ul.list-group {
+    >li.list-group-item {
+        >a {
+            color: @ming;
+        }
+    }
+}
+.panel-footer {
+    a.btn-primary {
+        color: @white;
+    }
+}
+th {
+    >a {
+        color: @anthracite;
+        &:hover {
+            color: @ming;
+        }
+    }
+}
+ul.pagination {
+    li {
+        a {
+            color: @ming;
+            border-color: @ming;
+            &:hover {
+                color: @ming;
+                border-color: @ming;
+            }
+        }
+    }
+    li.active {
+        a {
+            background-color: @ming;
+            color: @white;
+            border-color: @ming;
+            &:hover {
+                background-color: @ming;
+                color: @white;
+                border-color: @ming;
+            }
+        }
+    }
+    >li.active {
+        >a {
+            z-index: -5;
+        }
+    }
+}
+.spacer {
+    min-width: 100%;
+    height: 20px;
+}
+h1 {
+    font-family: @montserrat;
+}
+h2 {
+    font-family: @montserrat;
+}
+h3 {
+    font-family: @montserrat;
+}
+h4 {
+    font-family: @montserrat;
+}
+a {
+    font-family: @montserrat;
+}
+button {
+    font-family: @montserrat;
+}
+.container {
+    .text-muted {
+        margin: 20px 0;
+    }
+}
+input[type="radio"] {
+    &:before {
+        background-color: @ming;
+    }
+    &:checked {
+        &:after {
+            border-color: @ming;
+        }
+    }
+}
+.radio {
+    input[type="radio"] {
+        &:before {
+            background-color: @ming;
+        }
+        &:checked {
+            &:after {
+                border-color: @ming;
+            }
+        }
+    }
+}
+.radio-inline {
+    input[type="radio"] {
+        &:before {
+            background-color: @ming;
+        }
+        &:checked {
+            &:after {
+                border-color: @ming;
+            }
+        }
+    }
+}
+#addVehiculeBtn {
+    margin-left: 20px;
+}
+.btn-black {
+    margin-top: 10px;
+    background-color: @anthracite;
+    margin-bottom: -20px;
+    width: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+    &:hover {
+        margin-top: 10px;
+        background-color: @anthracite;
+        margin-bottom: -20px;
+        width: 100%;
+        border-radius: 0px;
+        box-shadow: none;
+    }
+}
+.well.well-vehicules {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.btn-primary {
+    color: @white;
+    background-color: @ming;
+    &:hover {
+        background-color: @anthracite;
+    }
+}
+.close {
+    margin-top: 10px;
+    margin-right: 15px;
+}
+&::-webkit-scrollbar {
+    width: 2px;
+}
+&::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+&::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background-color: @ming;
+}
+a[target="_blank"] {
+    &:not(.social-link) {
+        &::after {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin-left: 5px;
+            content: "  \f08e";
+        }
+    }
+}
+.social-link {
+    color: @ming;
+    text-decoration: none;
+    font-size: 15px;
+}
+a.social-link {
+    &:hover {
+        color: @black;
+        text-decoration: none;
+    }
+}
+i.fa.fa-file-pdf-o {
+    color: @ecarlate;
+}
+i.fa.fa-file-excel-o {
+    color: @flatgreen;
+}
+abbr[fake-title] {
+    &:hover {
+        &:after {
+            content: attr(fake-title);
+            padding: 4px 8px;
+            position: absolute;
+            left: 150px;
+            top: 40px;
+            z-index: 20;
+            background-color: @ming;
+            color: @white;
+            white-space: nowrap;
+            border-radius: 5px;
+            box-shadow: 0px 0px 4px #222;
+        }
+    }
+}
+.modal-header {
+    background-color: @anthracite;
+    button.close {
+        color: @white;
+    }
+    h4 {
+        color: @white;
+        font-size: 16px;
+    }
+}
+.label-vehicule {
+    margin-right: 5px;
+    height: 20px;
+    display: block;
+    line-height: 18px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    border-radius: 3px;
+    background-color: @ming;
+}
+// Panneau de recherche véhicules
+.well-vehicules {
+    width: 100%;
+    margin-left: 1px;
+    margin-bottom: 0px;
+    i {
+        color: @white;
+    }
+    input {
+        color: @white;
+    }
+    label {
+        color: @white;
+    }
+    select {
+        margin-top: 20px;
+        background-color: @white;
+        color: @ming;
+        padding-left: 10px;
+    }
+    i.fa.fa-filter.fa-fw {
+        margin-top: 20px;
+    }
+    .form-group {
+        &:first-child {
+            margin-top: 10px;
+        }
+    }
+    input[type='radio'] {
+        &:checked {
+            &:after {
+                border-color: @white;
+                background-color: @white;
+            }
+        }
+        &:before {
+            border-color: @white;
+        }
+        &:after {
+            border-color: @white;
+        }
+    }
+    input[type='checkbox'] {
+        &:before {
+            border-color: @white;
+        }
+        &:after {
+            border-color: @white;
+        }
+    }
+    input[type="checkbox"] {
+        &:checked {
+            &:after {
+                background-color: @transparent;
+                color: @ming;
+            }
+        }
+    }
+    .checkbox {
+        input[type="checkbox"] {
+            &:checked {
+                &:after {
+                    background-color: @transparent;
+                    color: @ming;
+                }
+            }
+        }
+    }
+    .checkbox-inline {
+        input[type="checkbox"] {
+            &:checked {
+                &:after {
+                    background-color: @transparent;
+                    color: @ming;
+                }
+            }
+        }
+    }
+}
+#reverse {
+    &:checked {
+        &:after {
+            background-color: @transparent;
+            color: @ming;
+        }
+    }
+}
+// jQuery UI
+.ui-widget-content {
+    background: @anthracite;
+}
+.ui-tooltip {
+    box-shadow: @anthracite 2px 2px 2px;
+}
+// Angular Cloak
+[ng\:cloak] {
+    display: none !important;
+}
+[ng-cloak] {
+    display: none !important;
+}
+.ng-cloak {
+    display: none !important;
+}
+// Couleurs 'primaires'
+.bg-primary {
+    background-color: @ming;
+    color: @white;
+}
+th.text-primary {
+    a {
+        color: @ming;
+        &:hover {
+            color: @ming;
+        }
+    }
+}
+.tab-pane {
+    padding-top: 10px;
+}
+.btn-rep {
+    margin-right: 5px;
+}
+.list-group-item-info {
+    background-color: @ming;
+    color: @white;
+    font-weight: bold;
+    text-align: center;
+}
+.table-vehicules-list {
+    th {
+        text-align: center;
+    }
+}
+.tool-logo {
+    height: 20px;
+    width: 20px;
+}

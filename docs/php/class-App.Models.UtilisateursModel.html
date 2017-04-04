@@ -171,7 +171,7 @@
 
 				<b>Author:</b>
 				Tim <a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#x74;&#x69;&#109;&#64;&#x74;&#x63;h&#97;&#112;&#x65;&#x6c;&#108;&#101;&#x2e;&#x62;e">&#x74;&#x69;&#109;&#64;&#x74;&#x63;h&#97;&#112;&#x65;&#x6c;&#108;&#101;&#x2e;&#x62;e</a><br>
-			<b>Located at</b> <a href="source-class-App.Models.UtilisateursModel.html#8-29" title="Go to source code">Models/UtilisateursModel.php</a>
+			<b>Located at</b> <a href="source-class-App.Models.UtilisateursModel.html#8-35" title="Go to source code">Models/UtilisateursModel.php</a>
 		<br>
 	</div>
 
@@ -191,14 +191,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_findByLoginPassword">#</a>
-			<code><a href="source-class-App.Models.UtilisateursModel.html#15-24" title="Go to source code">findByLoginPassword</a>( <span>string <var>$login</var></span>, <span>string <var>$password</var></span> )</code>
+			<code><a href="source-class-App.Models.UtilisateursModel.html#15-25" title="Go to source code">findByLoginPassword</a>( <span>string <var>$login</var></span>, <span>string <var>$password</var></span> )</code>
 
 			<div class="description short">
-				<p>Retrouver un utilisateur avec son login et son mot de passe.</p>
+				<p>Récupérer un utilisateur avec son login et son mot de passe (pour vérifier
+les identifiants)</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Retrouver un utilisateur avec son login et son mot de passe.</p>
+				<p>Récupérer un utilisateur avec son login et son mot de passe (pour vérifier
+les identifiants)</p>
 
 
 					<h4>Parameters</h4>
@@ -224,26 +226,39 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				type
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_findByLogin">#</a>
-			<code><a href="source-class-App.Models.UtilisateursModel.html#26-28" title="Go to source code">findByLogin</a>( <span> <var>$login</var></span> )</code>
+			<code><a href="source-class-App.Models.UtilisateursModel.html#26-34" title="Go to source code">findByLogin</a>( <span>string <var>$login</var></span> )</code>
 
 			<div class="description short">
-				
+				<p>Récupérer un utilisateur avec son login</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Récupérer un utilisateur avec son login</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$login</var></dt>
+						<dd>Login de l'utilisateur</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						type
+					</div>
 
 
-
+					<h4>Example</h4>
+					<div class="list">
+							'../Controller/UtilisateursController.php' Ligne 105<br>
+					</div>
 
 
 			</div>

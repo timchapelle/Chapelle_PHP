@@ -51,6 +51,7 @@ class App {
      * @return object Une instance de la classe appelée
      */
     public function getModel($name) {
+        // Nom de la classe (+namespace) = \App\Models\ nom de la table avec une majuscule Model
         $className = '\\App\\Models\\' . ucfirst($name) . 'Model';
         return new $className($this->getDb());
     }

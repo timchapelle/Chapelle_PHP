@@ -104,7 +104,7 @@ $(function () {
     // Initialisation de l'arbre des dossiers
     $('#file_tree').fileTree({
         root: '/Chapelle_PHP/',
-        script: '../bower_components/jqueryfiletree/dist/connectors/jqueryFileTree.php',
+        script: '../php/jqueryFileTree.php',
         expandSpeed: 200,
         collapseSpeed: 200,
         multiFolder: false
