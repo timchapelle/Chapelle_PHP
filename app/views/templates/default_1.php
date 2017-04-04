@@ -25,16 +25,16 @@ CHAPELLE Timothée
         <!-- jQuery UI Theme -->
         <link href="http://code.jquery.com/ui/1.12.1/themes/dark-hive/jquery-ui.css" rel="stylesheet" type="text/css" >
         <!-- Twitter Bootstrap -->
-        <link href="../dist/css/bootstrap_paper.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../dist/css/simple-sidebar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/bootstrap_paper.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/simple-sidebar.min.css" rel="stylesheet" type="text/css"/>
         <!-- Font Awesome -->
-        <link href="../dist/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../bower_components/font-awesome/dist/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <!-- Font Awesome Animation -->
-        <link href="../dist/css/font-awesome-animation.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../bower_components/font-awesome-animation/dist/css/font-awesome-animation.css" rel="stylesheet" type="text/css"/>
         <!--jQuery File Tree-->
-        <link href="../dist/css/jQueryFileTree.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../bower_components/jqueryfiletree/dist/jQueryFileTree.min.css" rel="stylesheet" type="text/css"/>
         <!-- CSS concaténé et minifié -->
-        <link href="../dist/css/chapelle.min.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/chapelle.css" rel="stylesheet" type="text/css">
     </head>
 
     <body>
@@ -59,20 +59,20 @@ CHAPELLE Timothée
         </div>
         <!-- SCRIPTS -->
         <!-- jQuery + TBS-->
-        <script src="../dist/js/libs/jquery.min.js" type="text/javascript"></script>
-        <script src="../dist/js/libs/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- jQuery File Tree -->
-        <script src="../dist/js/libs/jQueryFileTree.min.js" type="text/javascript"></script>
+        <script src="../bower_components/jqueryfiletree/dist/jQueryFileTree.min.js" type="text/javascript"></script>
         <!-- AngularJS -->
-        <script src="../dist/js/libs/angular.min.js" type="text/javascript"></script>
+        <script src="../bower_components/angular/dist/angular.js" type="text/javascript"></script>
         <!-- Angular toArray Filter -->
-        <script src="../dist/js/libs/toArrayFilter.min.js" type="text/javascript"></script>
+        <script src="../bower_components/angular-toArrayFilter/toArrayFilter.js" type="text/javascript"></script>
         <!-- Angular Cookies -->
-        <script src="../dist/js/libs/angular-cookies.min.js" type="text/javascript"></script>   
+        <script src="../bower_components/angular-cookies/angular-cookies.js" type="text/javascript"></script>   
         <!-- jQuery UI -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>   
         <!--jQuery UI DatePicker-->
-        <script src="../dist/js/libs/datepicker-fr.js"></script>
-        <!-- Version concaténée, uglifiée, minifiée des 3 scripts AngularJS + script jQuery -->
-        <script src="../dist/js/bigJS.min.js"></script>
+        <script src="../assets/js/datepicker-fr.js"></script>
+        <!-- Chapelle jQuery -->
+        <script src="../assets/js/chapelle-jquery.js"></script>
 </html>
