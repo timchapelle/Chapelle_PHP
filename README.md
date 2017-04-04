@@ -6,16 +6,12 @@ Projet PHP dans le cadre du cours Projet Développement Web
 
 ### Sources
 
-Pour travailler à partir des sources, utiliser app/views/templates/default_1.php 
-plutôt que app/views/templates/default.php, ensuite : 
+Pour travailler à partir des sources: 
 
-
-`npm install`
-
-`bower install` 
-
-Pour recréer les fichiers de production : `gulp prod`
-
-Le script (MySQL) pour recréer la db se trouve dans assets/db.
-
-Mettez à jour vos identifiants de connexion dans le fichier config/config.php.
++ Télécharger ou cloner le projet sur GitHub
++  `npm install`
++  `bower install` 
++ `gulp prod`
++ Ajuster les liens dans app/templates/default.php
++ Le script (MySQL) pour recréer la db se trouve dans assets/db.
++ Mettez à jour vos identifiants de connexion dans le fichier config/config.php.
